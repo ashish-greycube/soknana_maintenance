@@ -1,0 +1,18 @@
+include MANIFEST.in
+include requirements.txt
+include *.json
+include *.md
+include *.py
+include *.txt
+recursive-include soknana_maintenance *.css
+recursive-include soknana_maintenance *.csv
+recursive-include soknana_maintenance *.html
+recursive-include soknana_maintenance *.ico
+recursive-include soknana_maintenance *.js
+recursive-include soknana_maintenance *.json
+recursive-include soknana_maintenance *.md
+recursive-include soknana_maintenance *.png
+recursive-include soknana_maintenance *.py
+recursive-include soknana_maintenance *.svg
+recursive-include soknana_maintenance *.txt
+recursive-exclude soknana_maintenance *.pyc
