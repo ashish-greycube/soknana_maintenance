@@ -1,0 +1,2 @@
+soknana_maintenance.patches.create_soknana_maintenance_cf_in_stock_entry
+soknana_maintenance.patches.create_soknana_maintenance_cf_in_purchase_invoice

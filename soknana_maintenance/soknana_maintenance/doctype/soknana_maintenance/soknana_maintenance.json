@@ -1,0 +1,259 @@
+{
+ "actions": [],
+ "allow_rename": 1,
+ "autoname": "naming_series:",
+ "creation": "2023-08-21 14:22:50.223406",
+ "default_view": "List",
+ "doctype": "DocType",
+ "editable_grid": 1,
+ "engine": "InnoDB",
+ "field_order": [
+  "naming_series",
+  "maintenance_date",
+  "applied_by",
+  "department",
+  "cb_1",
+  "soknana_maintenance_type",
+  "to_link_with_asset",
+  "asset",
+  "maintenance_category",
+  "remarks",
+  "sb_material",
+  "is_material_required",
+  "soknana_maintenance_item_detail",
+  "solution_provided",
+  "is_maintenance_by_other_supplier",
+  "sb_other_sup",
+  "supplier",
+  "maintenance_amount",
+  "is_tax_applicable",
+  "is_paid",
+  "mode_of_payment",
+  "amended_from"
+ ],
+ "fields": [
+  {
+   "fieldname": "naming_series",
+   "fieldtype": "Select",
+   "in_list_view": 1,
+   "label": "Series",
+   "options": "SM-.YY.MM.-.#",
+   "reqd": 1
+  },
+  {
+   "default": "Today",
+   "fieldname": "maintenance_date",
+   "fieldtype": "Date",
+   "in_list_view": 1,
+   "label": "Maintenance Date",
+   "reqd": 1
+  },
+  {
+   "fieldname": "applied_by",
+   "fieldtype": "Link",
+   "in_list_view": 1,
+   "in_standard_filter": 1,
+   "label": "Applied By",
+   "options": "User",
+   "reqd": 1
+  },
+  {
+   "fieldname": "department",
+   "fieldtype": "Link",
+   "label": "Department",
+   "options": "Department"
+  },
+  {
+   "fieldname": "cb_1",
+   "fieldtype": "Column Break"
+  },
+  {
+   "fieldname": "soknana_maintenance_type",
+   "fieldtype": "Link",
+   "in_list_view": 1,
+   "in_standard_filter": 1,
+   "label": "Soknana Maintenance Type",
+   "options": "Soknana Maintenance Type",
+   "reqd": 1
+  },
+  {
+   "default": "0",
+   "fetch_from": "soknana_maintenance_type.to_link_with_asset",
+   "fieldname": "to_link_with_asset",
+   "fieldtype": "Check",
+   "hidden": 1,
+   "label": "to_link_with_asset"
+  },
+  {
+   "depends_on": "eval:doc.to_link_with_asset == 1",
+   "fieldname": "asset",
+   "fieldtype": "Link",
+   "label": "Asset",
+   "mandatory_depends_on": "eval:doc.to_link_with_asset == 1",
+   "options": "Asset"
+  },
+  {
+   "fieldname": "maintenance_category",
+   "fieldtype": "Select",
+   "in_list_view": 1,
+   "in_standard_filter": 1,
+   "label": "Maintenance Category",
+   "options": "Correction\nPreventive\nPeriodic",
+   "reqd": 1
+  },
+  {
+   "fieldname": "remarks",
+   "fieldtype": "Small Text",
+   "label": "Remarks"
+  },
+  {
+   "fieldname": "sb_material",
+   "fieldtype": "Section Break"
+  },
+  {
+   "default": "0",
+   "fieldname": "is_material_required",
+   "fieldtype": "Check",
+   "label": "Is Material Required",
+   "reqd": 1
+  },
+  {
+   "depends_on": "eval:doc.is_material_required == 1",
+   "fieldname": "soknana_maintenance_item_detail",
+   "fieldtype": "Table",
+   "label": "Soknana Maintenance Item Detail",
+   "mandatory_depends_on": "eval:doc.is_material_required == 1",
+   "options": "Soknana Maintenance Item Detail"
+  },
+  {
+   "fieldname": "solution_provided",
+   "fieldtype": "Small Text",
+   "label": "Solution Provided"
+  },
+  {
+   "default": "0",
+   "fieldname": "is_maintenance_by_other_supplier",
+   "fieldtype": "Check",
+   "label": "Is Maintenance By Other Supplier ?"
+  },
+  {
+   "depends_on": "eval:doc.is_maintenance_by_other_supplier ==1",
+   "fieldname": "sb_other_sup",
+   "fieldtype": "Section Break"
+  },
+  {
+   "fieldname": "supplier",
+   "fieldtype": "Link",
+   "label": "Supplier",
+   "mandatory_depends_on": "eval:doc.is_maintenance_by_other_supplier ==1",
+   "options": "Supplier"
+  },
+  {
+   "fieldname": "maintenance_amount",
+   "fieldtype": "Currency",
+   "label": "Maintenance Amount",
+   "mandatory_depends_on": "eval:doc.is_maintenance_by_other_supplier ==1"
+  },
+  {
+   "default": "0",
+   "fieldname": "is_tax_applicable",
+   "fieldtype": "Check",
+   "label": "is Tax Applicable ?",
+   "mandatory_depends_on": "eval:doc.is_maintenance_by_other_supplier ==1"
+  },
+  {
+   "default": "0",
+   "fieldname": "is_paid",
+   "fieldtype": "Check",
+   "label": "Is Paid ?",
+   "mandatory_depends_on": "eval:doc.is_maintenance_by_other_supplier ==1"
+  },
+  {
+   "fieldname": "mode_of_payment",
+   "fieldtype": "Link",
+   "label": "Mode of Payment",
+   "mandatory_depends_on": "eval:doc.is_paid ==1",
+   "options": "Mode of Payment"
+  },
+  {
+   "fieldname": "amended_from",
+   "fieldtype": "Link",
+   "label": "Amended From",
+   "no_copy": 1,
+   "options": "Soknana Maintenance",
+   "print_hide": 1,
+   "read_only": 1
+  },
+  {
+   "fieldname": "amended_from",
+   "fieldtype": "Link",
+   "label": "Amended From",
+   "no_copy": 1,
+   "options": "Soknana Maintenance",
+   "print_hide": 1,
+   "read_only": 1
+  }
+ ],
+ "index_web_pages_for_search": 1,
+ "is_submittable": 1,
+ "links": [
+  {
+   "link_doctype": "Purchase Invoice",
+   "link_fieldname": "soknana_maintenance_cf"
+  },
+  {
+   "link_doctype": "Stock Entry",
+   "link_fieldname": "soknana_maintenance_cf"
+  }
+ ],
+ "modified": "2023-08-21 14:46:47.140365",
+ "modified_by": "Administrator",
+ "module": "Soknana Maintenance",
+ "name": "Soknana Maintenance",
+ "naming_rule": "By \"Naming Series\" field",
+ "owner": "Administrator",
+ "permissions": [
+  {
+   "create": 1,
+   "delete": 1,
+   "email": 1,
+   "export": 1,
+   "print": 1,
+   "read": 1,
+   "report": 1,
+   "role": "System Manager",
+   "share": 1,
+   "submit": 1,
+   "write": 1
+  },
+  {
+   "create": 1,
+   "delete": 1,
+   "email": 1,
+   "export": 1,
+   "print": 1,
+   "read": 1,
+   "report": 1,
+   "role": "Maintenance Manager",
+   "share": 1,
+   "submit": 1,
+   "write": 1
+  },
+  {
+   "create": 1,
+   "delete": 1,
+   "email": 1,
+   "export": 1,
+   "print": 1,
+   "read": 1,
+   "report": 1,
+   "role": "Maintenance User",
+   "share": 1,
+   "submit": 1,
+   "write": 1
+  }
+ ],
+ "sort_field": "modified",
+ "sort_order": "DESC",
+ "states": []
+}
