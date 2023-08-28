@@ -42,7 +42,7 @@ def make_stock_entry(source_name, target_doc=None):
 		stock_entry.purpose = "Material Issue"
 		stock_entry.set_stock_entry_type()
 		# stock_entry.from_warehouse = doc.default_parts_issue_warehouse
-		stock_entry.company = get_default_company()
+		stock_entry.company = doc.company
 		stock_entry.remarks = _(" It is created from soknana maintenance {0}").format(doc.name)
 		cost_center = frappe.get_cached_value("Company", get_default_company(), "cost_center")
 		stock_entry.soknana_maintenance_cf=source_name
@@ -73,7 +73,7 @@ def make_purchase_invoice(source_name, target_doc=None):
 		mode_of_payment=doc.mode_of_payment
 		payment_doc=frappe.get_doc('Mode of Payment', mode_of_payment)
 		for acct in payment_doc.accounts:
-			if acct.company==get_default_company():
+			if acct.company==doc.company:
 				cash_bank_account=acct.default_account
 				break
 
@@ -107,3 +107,18 @@ def make_purchase_invoice(source_name, target_doc=None):
 	pi.save(ignore_permissions=True)
 
 	return pi.name
+
+@frappe.whitelist()
+def get_sub_category(maintenanace_type):
+	return frappe.db.get_all('Soknana Sub Maintenance Type', filters={
+		'parent': ['=', maintenanace_type],
+	},
+	 fields=['sub_category'],as_list=True)	
+
+@frappe.whitelist()
+def get_sub_category_details(maintenanace_type,sub_category):
+	return frappe.db.get_all('Soknana Sub Maintenance Type', filters={
+		'parent': ['=', maintenanace_type],
+		'sub_category': ['=', sub_category],
+	},
+	 fields=['required_attachment', 'required_two_level_approval'])	

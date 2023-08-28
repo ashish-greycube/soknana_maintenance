@@ -11,7 +11,9 @@
   "to_link_with_asset",
   "default_purchase_item",
   "cb_1",
-  "default_expense_account"
+  "default_expense_account",
+  "section_break_5rdh7",
+  "sub_maintenance_category"
  ],
  "fields": [
   {
@@ -51,11 +53,21 @@
    "label": "Default Expense Account",
    "options": "Account",
    "reqd": 1
+  },
+  {
+   "fieldname": "section_break_5rdh7",
+   "fieldtype": "Section Break"
+  },
+  {
+   "fieldname": "sub_maintenance_category",
+   "fieldtype": "Table",
+   "label": "Sub Maintenance Category",
+   "options": "Soknana Sub Maintenance Type"
   }
  ],
  "index_web_pages_for_search": 1,
  "links": [],
- "modified": "2023-08-21 12:33:27.484165",
+ "modified": "2023-08-28 10:30:03.347176",
  "modified_by": "Administrator",
  "module": "Soknana Maintenance",
  "name": "Soknana Maintenance Type",
@@ -71,6 +83,7 @@
    "read": 1,
    "report": 1,
    "role": "System Manager",
+   "select": 1,
    "share": 1,
    "write": 1
   },
@@ -83,6 +96,7 @@
    "read": 1,
    "report": 1,
    "role": "Maintenance Manager",
+   "select": 1,
    "share": 1,
    "write": 1
   },
@@ -93,6 +107,7 @@
    "read": 1,
    "report": 1,
    "role": "Maintenance User",
+   "select": 1,
    "share": 1
   }
  ],
