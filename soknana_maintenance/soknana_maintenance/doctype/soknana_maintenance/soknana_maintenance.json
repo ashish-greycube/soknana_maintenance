@@ -174,24 +174,6 @@
    "options": "Mode of Payment"
   },
   {
-   "fieldname": "amended_from",
-   "fieldtype": "Link",
-   "label": "Amended From",
-   "no_copy": 1,
-   "options": "Soknana Maintenance",
-   "print_hide": 1,
-   "read_only": 1
-  },
-  {
-   "fieldname": "amended_from",
-   "fieldtype": "Link",
-   "label": "Amended From",
-   "no_copy": 1,
-   "options": "Soknana Maintenance",
-   "print_hide": 1,
-   "read_only": 1
-  },
-  {
    "fieldname": "maintenance_request_time",
    "fieldtype": "Time",
    "label": "Maintenance Request Time"
@@ -257,6 +239,15 @@
    "label": "Company",
    "options": "Company",
    "reqd": 1
+  },
+  {
+   "fieldname": "amended_from",
+   "fieldtype": "Link",
+   "label": "Amended From",
+   "no_copy": 1,
+   "options": "Soknana Maintenance",
+   "print_hide": 1,
+   "read_only": 1
   }
  ],
  "index_web_pages_for_search": 1,
@@ -271,7 +262,7 @@
    "link_fieldname": "soknana_maintenance_cf"
   }
  ],
- "modified": "2023-08-28 10:52:41.473600",
+ "modified": "2023-08-31 07:01:59.662320",
  "modified_by": "Administrator",
  "module": "Soknana Maintenance",
  "name": "Soknana Maintenance",
