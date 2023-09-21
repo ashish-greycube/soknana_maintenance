@@ -13,6 +13,10 @@ from erpnext.controllers.accounts_controller import get_taxes_and_charges
 from frappe.utils import today
 
 class SoknanaMaintenance(Document):
+	def on_change(self):
+		if self.docstatus==1:
+			self.maintenance_complete_date=today()
+
 	def on_submit(self):
 		self.maintenance_complete_date=today()
 		if self.is_material_required==1:
