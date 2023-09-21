@@ -10,9 +10,11 @@ from frappe.model.mapper import get_mapped_doc
 from erpnext import get_company_currency, get_default_company
 from frappe.utils import getdate, cstr, flt
 from erpnext.controllers.accounts_controller import get_taxes_and_charges
+from frappe.utils import today
 
 class SoknanaMaintenance(Document):
 	def on_submit(self):
+		self.maintenance_complete_date=today()
 		if self.is_material_required==1:
 			stock_entry=make_stock_entry(self.name)
 			if stock_entry!=0:
@@ -60,6 +62,7 @@ def make_stock_entry(source_name, target_doc=None):
 			se_child.s_warehouse=entry.warehouse
 
 		stock_entry.save(ignore_permissions=True)
+		stock_entry.submit()
 		return stock_entry.name			
 
 @frappe.whitelist()
@@ -105,7 +108,7 @@ def make_purchase_invoice(source_name, target_doc=None):
 		pi.cash_bank_account=cash_bank_account		
 		pi.paid_amount=pi.grand_total
 	pi.save(ignore_permissions=True)
-
+	pi.submit()
 	return pi.name
 
 @frappe.whitelist()
