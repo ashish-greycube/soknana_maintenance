@@ -3,6 +3,7 @@
 
 frappe.ui.form.on('Soknana Maintenance', {
 	refresh: function (frm) {
+		frm.meta.make_attachments_public=1
 		if (frm.is_new() == 1 && !frm.doc.company) {
 			frm.set_value('company', frappe.defaults.get_default('company'))
 		}
@@ -33,15 +34,16 @@ frappe.ui.form.on('Soknana Maintenance', {
 		}
 	},
 	validate: function (frm) {
+		console.log('validatefrm.doc.maintenance_complete_date',frm.doc.maintenance_complete_date,frm.doc.docstatus,'docstatus')
 		if (frm.doc.required_attachment == 1 && !frm.doc.issue_attachment) {
 			frappe.throw(__('Please attach in "Issue Attachment" field to proceed..'))
 		}
 		if (frm.doc.required_attachment == 1 && !frm.doc.solution_attachment && frm.doc.workflow_state && frm.doc.workflow_state == 'Maintenance Completed') {
 			frappe.throw(__('Please attach in "Solution Attachment" field to proceed..'))
 		}
-		if (!frm.doc.maintenance_complete_date && frm.doc.workflow_state && frm.doc.workflow_state == 'Under Maintenance') {
-			frappe.throw(__('Please put date in "Maintenance Complete Date" field to proceed..'))
-		}
+		// if (!frm.doc.maintenance_complete_date && frm.doc.workflow_state && frm.doc.workflow_state == 'Under Maintenance') {
+		// 	frappe.throw(__('Please put date in "Maintenance Complete Date" field to proceed..'))
+		// }
 	},
 	soknana_maintenance_type: function (frm) {
 
