@@ -16,7 +16,7 @@ class SoknanaMaintenance(Document):
 	def on_change(self):
 		if self.docstatus==1:
 			if not self.solution_attachment:
-				frappe.throw_('Please provide solution attachment before submit.')
+				frappe.throw(_('Please provide solution attachment before submit.'))
 			self.maintenance_complete_date=today()
 			frappe.db.set_value('Soknana Maintenance', self.name, 'maintenance_complete_date', today())
 
