@@ -23,6 +23,7 @@
   "required_two_level_approval",
   "to_link_with_asset",
   "asset",
+  "material_status",
   "remarks",
   "attachments_section",
   "issue_attachment",
@@ -248,6 +249,14 @@
    "options": "Soknana Maintenance",
    "print_hide": 1,
    "read_only": 1
+  },
+  {
+   "allow_on_submit": 1,
+   "default": "Not Applicable",
+   "fieldname": "material_status",
+   "fieldtype": "Select",
+   "label": "Material Status",
+   "options": "Not Applicable\nPending\nOrdered\nPurchased"
   }
  ],
  "index_web_pages_for_search": 1,
@@ -260,9 +269,13 @@
   {
    "link_doctype": "Stock Entry",
    "link_fieldname": "soknana_maintenance_cf"
+  },
+  {
+   "link_doctype": "Material Request",
+   "link_fieldname": "custom_soknana_maintenance"
   }
  ],
- "modified": "2023-08-31 07:01:59.662320",
+ "modified": "2023-11-07 12:31:08.171850",
  "modified_by": "Administrator",
  "module": "Soknana Maintenance",
  "name": "Soknana Maintenance",

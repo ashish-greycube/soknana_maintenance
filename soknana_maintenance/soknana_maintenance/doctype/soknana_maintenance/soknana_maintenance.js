@@ -32,6 +32,28 @@ frappe.ui.form.on('Soknana Maintenance', {
 				}
 			})
 		}
+		if (frm.is_new() == undefined) {
+			frappe.db.get_list('Material Request', {
+				fields: ['name'],
+				filters: {
+					custom_soknana_maintenance: frm.doc.name,
+					docstatus:["!=",2]
+				}
+			}).then(records => {
+				console.log(records);
+				if (records.length==0) {
+					frm.add_custom_button(__('Material Request'), () =>{
+						frappe.model.with_doctype("Material Request", function() {
+							let material_request = frappe.model.get_new_doc("Material Request");
+							material_request.custom_soknana_maintenance = cur_frm.doc.name;
+							frappe.set_route("Form", "Material Request", material_request.name);
+							});				
+					}, __('Create'));				
+				}
+			})
+			
+
+		}
 	},
 	validate: function (frm) {
 		console.log('validatefrm.doc.maintenance_complete_date',frm.doc.maintenance_complete_date,frm.doc.docstatus,'docstatus')

@@ -13,6 +13,11 @@ from erpnext.controllers.accounts_controller import get_taxes_and_charges
 from frappe.utils import today
 
 class SoknanaMaintenance(Document):
+	def validate(self):
+		stop_maintenance_amount = frappe.db.get_single_value('Soknana Settings', 'stop_maintenance_amount')
+		if self.maintenance_amount and stop_maintenance_amount and self.maintenance_amount>stop_maintenance_amount:
+			frappe.throw(title='Error', msg='Maintenance amount cannot be greater than {0} <br> Please correct it to proceed..'.format(frappe.bold(stop_maintenance_amount)),)
+
 	def on_change(self):
 		if self.docstatus==1:
 			if not self.solution_attachment:

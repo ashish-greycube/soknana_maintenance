@@ -1,0 +1,74 @@
+{
+ "actions": [],
+ "allow_rename": 1,
+ "creation": "2023-11-07 07:15:43.307603",
+ "default_view": "List",
+ "doctype": "DocType",
+ "editable_grid": 1,
+ "engine": "InnoDB",
+ "field_order": [
+  "maintenance",
+  "stop_maintenance_amount",
+  "column_break_suxz5",
+  "quality_review",
+  "quality_supervisor_role",
+  "branch_manager_role"
+ ],
+ "fields": [
+  {
+   "description": "Maintenance Request will not be saved, if the maintenance amount is greater than the amount specified here.",
+   "fieldname": "stop_maintenance_amount",
+   "fieldtype": "Currency",
+   "label": "Stop Maintenance Amount"
+  },
+  {
+   "fieldname": "maintenance",
+   "fieldtype": "Heading",
+   "label": "Maintenance"
+  },
+  {
+   "fieldname": "column_break_suxz5",
+   "fieldtype": "Column Break"
+  },
+  {
+   "fieldname": "quality_review",
+   "fieldtype": "Heading",
+   "label": "Quality Review"
+  },
+  {
+   "fieldname": "quality_supervisor_role",
+   "fieldtype": "Link",
+   "label": "Quality Supervisor Role",
+   "options": "Role"
+  },
+  {
+   "fieldname": "branch_manager_role",
+   "fieldtype": "Link",
+   "label": "Branch Manager Role",
+   "options": "Role"
+  }
+ ],
+ "index_web_pages_for_search": 1,
+ "issingle": 1,
+ "links": [],
+ "modified": "2023-11-07 07:17:42.243839",
+ "modified_by": "Administrator",
+ "module": "Soknana Maintenance",
+ "name": "Soknana Settings",
+ "owner": "Administrator",
+ "permissions": [
+  {
+   "create": 1,
+   "delete": 1,
+   "email": 1,
+   "print": 1,
+   "read": 1,
+   "role": "System Manager",
+   "share": 1,
+   "write": 1
+  }
+ ],
+ "sort_field": "modified",
+ "sort_order": "DESC",
+ "states": []
+}

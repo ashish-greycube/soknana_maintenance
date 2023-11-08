@@ -1,6 +1,11 @@
 {
- "charts": [],
- "content": "[{\"id\":\"D2vXMZcAE1\",\"type\":\"header\",\"data\":{\"text\":\"<span class=\\\"h4\\\">Maintenance</span>\",\"col\":12}},{\"id\":\"pHt_fsf1st\",\"type\":\"card\",\"data\":{\"card_name\":\"Maintenance\",\"col\":4}}]",
+ "charts": [
+  {
+   "chart_name": "Maintenance",
+   "label": "Maintenance"
+  }
+ ],
+ "content": "[{\"id\":\"D2vXMZcAE1\",\"type\":\"header\",\"data\":{\"text\":\"<span class=\\\"h4\\\">Maintenance</span>\",\"col\":12}},{\"id\":\"SVnXGMqoqR\",\"type\":\"chart\",\"data\":{\"chart_name\":\"Maintenance\",\"col\":12}},{\"id\":\"pHt_fsf1st\",\"type\":\"card\",\"data\":{\"card_name\":\"Maintenance\",\"col\":5}},{\"id\":\"QzCSFqkw7s\",\"type\":\"card\",\"data\":{\"card_name\":\"Material Flow\",\"col\":4}},{\"id\":\"GPGg_pbHKl\",\"type\":\"card\",\"data\":{\"card_name\":\"Quality Review\",\"col\":4}},{\"id\":\"7X0yzX2hal\",\"type\":\"shortcut\",\"data\":{\"shortcut_name\":\"\u0623\u0645\u0631 \u0627\u0644\u0634\u0631\u0627\u0621\",\"col\":3}}]",
  "creation": "2023-08-21 14:39:41.893481",
  "custom_blocks": [],
  "docstatus": 0,
@@ -16,14 +21,14 @@
    "hidden": 0,
    "is_query_report": 0,
    "label": "Maintenance",
-   "link_count": 4,
+   "link_count": 3,
    "onboard": 0,
    "type": "Card Break"
   },
   {
    "hidden": 0,
    "is_query_report": 0,
-   "label": "Soknana Maintenance",
+   "label": "Maintenance Request",
    "link_count": 0,
    "link_to": "Soknana Maintenance",
    "link_type": "DocType",
@@ -33,9 +38,9 @@
   {
    "hidden": 0,
    "is_query_report": 0,
-   "label": "Soknana Maintenance Type",
+   "label": "Material Request",
    "link_count": 0,
-   "link_to": "Soknana Maintenance Type",
+   "link_to": "Material Request",
    "link_type": "DocType",
    "onboard": 0,
    "type": "Link"
@@ -43,9 +48,47 @@
   {
    "hidden": 0,
    "is_query_report": 0,
-   "label": "Stock Entry",
+   "label": "Soknana Settings",
    "link_count": 0,
-   "link_to": "Stock Entry",
+   "link_to": "Soknana Settings",
+   "link_type": "DocType",
+   "onboard": 0,
+   "type": "Link"
+  },
+  {
+   "hidden": 0,
+   "is_query_report": 0,
+   "label": "Material Flow",
+   "link_count": 4,
+   "onboard": 0,
+   "type": "Card Break"
+  },
+  {
+   "hidden": 0,
+   "is_query_report": 0,
+   "label": "Maintenance Request",
+   "link_count": 0,
+   "link_to": "Soknana Maintenance",
+   "link_type": "DocType",
+   "onboard": 0,
+   "type": "Link"
+  },
+  {
+   "hidden": 0,
+   "is_query_report": 0,
+   "label": "Material Request",
+   "link_count": 0,
+   "link_to": "Material Request",
+   "link_type": "DocType",
+   "onboard": 0,
+   "type": "Link"
+  },
+  {
+   "hidden": 0,
+   "is_query_report": 0,
+   "label": "Purchase Order",
+   "link_count": 0,
+   "link_to": "Purchase Order",
    "link_type": "DocType",
    "onboard": 0,
    "type": "Link"
@@ -59,9 +102,37 @@
    "link_type": "DocType",
    "onboard": 0,
    "type": "Link"
+  },
+  {
+   "hidden": 0,
+   "is_query_report": 0,
+   "label": "Quality Review",
+   "link_count": 2,
+   "onboard": 0,
+   "type": "Card Break"
+  },
+  {
+   "hidden": 0,
+   "is_query_report": 0,
+   "label": "Quality Review",
+   "link_count": 0,
+   "link_to": "Quality Review",
+   "link_type": "DocType",
+   "onboard": 0,
+   "type": "Link"
+  },
+  {
+   "hidden": 0,
+   "is_query_report": 1,
+   "label": "Quality Review Report",
+   "link_count": 0,
+   "link_to": "Soknana Quality Review",
+   "link_type": "Report",
+   "onboard": 0,
+   "type": "Link"
   }
  ],
- "modified": "2023-08-21 15:29:01.580552",
+ "modified": "2023-11-08 11:36:16.935701",
  "modified_by": "Administrator",
  "module": "Soknana Maintenance",
  "name": "Maintenance",
@@ -72,6 +143,14 @@
  "quick_lists": [],
  "roles": [],
  "sequence_id": 39.0,
- "shortcuts": [],
+ "shortcuts": [
+  {
+   "color": "Grey",
+   "doc_view": "List",
+   "label": "\u0623\u0645\u0631 \u0627\u0644\u0634\u0631\u0627\u0621",
+   "link_to": "Purchase Order",
+   "type": "DocType"
+  }
+ ],
  "title": "Maintenance"
 }

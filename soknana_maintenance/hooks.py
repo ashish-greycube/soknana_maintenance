@@ -118,13 +118,24 @@ app_license = "MIT"
 # ---------------
 # Hook on document methods and events
 
-# doc_events = {
-#	"*": {
-#		"on_update": "method",
-#		"on_cancel": "method",
-#		"on_trash": "method"
-#	}
-# }
+doc_events = {
+	"Quality Review": {
+		"validate": "soknana_maintenance.api.validate_review_status"
+    },    
+	"Material Request": {
+		"validate": ["soknana_maintenance.api.fetch_approval_flags_from_item","soknana_maintenance.api.update_material_status"],
+        "on_submit":"soknana_maintenance.api.update_material_status",
+        "on_cancel":"soknana_maintenance.api.update_material_status"
+	},
+    "Purchase Order": {
+         "on_submit":"soknana_maintenance.api.update_material_status",
+         "on_cancel":"soknana_maintenance.api.update_material_status"
+	},
+    "Purchase Invoice": {
+         "on_submit":"soknana_maintenance.api.update_material_status",
+         "on_cancel":"soknana_maintenance.api.update_material_status"
+	}    
+}
 
 # Scheduled Tasks
 # ---------------
