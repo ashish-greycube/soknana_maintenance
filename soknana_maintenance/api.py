@@ -1,6 +1,7 @@
 import frappe
 from frappe import ValidationError, _, msgprint
 from frappe.utils.user import get_users_with_role
+from frappe.utils  import cstr
 
 
 def fetch_approval_flags_from_item(self,method):
@@ -161,9 +162,23 @@ def update_material_status(self,method):
 def validate_review_status(self,method):
     quality_supervisor_role = frappe.db.get_single_value('Soknana Settings', 'quality_supervisor_role')
     branch_manager_role = frappe.db.get_single_value('Soknana Settings', 'branch_manager_role')    
+    # supervior_missing_attachment_idx=[]
+    # branch_manager_missing_attachment_idx=[]
 
     if (frappe.session.user in get_users_with_role(quality_supervisor_role)) and (frappe.session.user not in get_users_with_role(branch_manager_role) or 'System Manager'):
+        # for review in self.reviews:
+        #     if review.status == 'Failed' and not review.custom_supervisor_review_attachment :
+        #         supervior_missing_attachment_idx.append(cstr(review.idx))
+        # if len(supervior_missing_attachment_idx)>0:
+        #     print(supervior_missing_attachment_idx,'supervior_missing_attachment_idx')
+        #     supervior_missing_attachment_idx_string=','.join(supervior_missing_attachment_idx)
+        #     frappe.throw(title='Error', msg='Please provide supervisor review attahcment for row {0}. This is required when quality supervisor marks review as failed.'.
+        #                      format(frappe.bold(supervior_missing_attachment_idx_string)),) 
+
         for review in self.reviews:
+            if review.status == 'Failed' and not review.custom_supervisor_review_attachment :
+                frappe.throw(title='Error', msg='Please provide supervisor review attahcment for row {0}. This is required when quality supervisor marks review as failed.'.
+                                format(frappe.bold(review.idx)),)                
             if review.custom_supervisor_status == 'Passed' or review.custom_supervisor_status == 'Failed':
                 frappe.throw(title='Error', msg='User {0} having role {1} is allowed to change status only once.<br> Please contact branch manager role user for futher changes'.
                              format(frappe.bold(frappe.session.user),frappe.bold(quality_supervisor_role)),)

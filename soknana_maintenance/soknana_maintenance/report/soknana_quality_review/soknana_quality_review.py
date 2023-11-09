@@ -14,10 +14,17 @@ def execute(filters=None):
 				'width':200
 			},
 			{
+				'fieldname': 'branch',
+				'label': _('Branch'),
+				'fieldtype': 'Link',
+				'options': 'Branch',
+				'width':150
+			},			
+			{
 				'fieldname': 'date',
 				'label': _('Date'),
 				'fieldtype': 'Date',
-				'width':200
+				'width':150
 			},		
 
 			{
@@ -25,7 +32,7 @@ def execute(filters=None):
 				'label': _('Quality Goal'),
 				'fieldtype': 'Link',
 				'options': 'Quality Goal',
-				'width':200
+				'width':150
 			},
 			{
 				'fieldname': 'points',
@@ -56,6 +63,7 @@ def execute(filters=None):
 	data = frappe.db.sql("""
 SELECT
 	qr.name as refrence,
+	qr.custom_branch as branch,
 	qr.date as date,
 	qr.goal as quality_goal,
 	sum(qro.target) as points,
