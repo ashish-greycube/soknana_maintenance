@@ -1,7 +1,7 @@
 import frappe
 from frappe import ValidationError, _, msgprint
 from frappe.utils.user import get_users_with_role
-from frappe.utils  import cstr
+from frappe.utils  import cstr,cint
 
 
 def fetch_approval_flags_from_item(self,method):
@@ -191,4 +191,15 @@ def validate_review_status(self,method):
             if review.custom_supervisor_status!=review.status and review.custom_supervisor_status=='Failed' and review.custom_review_attachment==None:
                 frappe.throw(title='Error', msg='Please provide review attahcment for row {0}. This is required as quality supervisor has failed it earlier.'.
                              format(frappe.bold(review.idx)),)                
+
+
+def calculate_success_rate(self,method):
+    passed_target_total=0
+    all_target_total=0
+    for review in self.reviews:
+        all_target_total=all_target_total+cint(review.target)
+        if review.custom_supervisor_status=='Passed':
+            passed_target_total=passed_target_total+cint(review.target)
+    self.custom_success_rate=(passed_target_total/all_target_total)*100
+
 

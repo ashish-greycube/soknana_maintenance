@@ -29,7 +29,9 @@ app_license = "MIT"
 # page_js = {"page" : "public/js/file.js"}
 
 # include js in doctype views
-doctype_js = {"Quality Review" : "public/js/quality_review.js"}
+doctype_js = {"Quality Review" : "public/js/quality_review.js",
+              "Purchase Order" : "public/js/purchase_order.js"
+              }
 # doctype_list_js = {"doctype" : "public/js/doctype_list.js"}
 # doctype_tree_js = {"doctype" : "public/js/doctype_tree.js"}
 # doctype_calendar_js = {"doctype" : "public/js/doctype_calendar.js"}
@@ -120,7 +122,7 @@ doctype_js = {"Quality Review" : "public/js/quality_review.js"}
 
 doc_events = {
 	"Quality Review": {
-		"validate": "soknana_maintenance.api.validate_review_status"
+		"validate": ["soknana_maintenance.api.validate_review_status","soknana_maintenance.api.calculate_success_rate"]
     },    
 	"Material Request": {
 		"validate": ["soknana_maintenance.api.fetch_approval_flags_from_item","soknana_maintenance.api.update_material_status"],
