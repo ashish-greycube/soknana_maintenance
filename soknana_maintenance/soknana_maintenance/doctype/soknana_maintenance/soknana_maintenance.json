@@ -40,7 +40,13 @@
   "is_tax_applicable",
   "is_paid",
   "mode_of_payment",
-  "amended_from"
+  "amended_from",
+  "work_flow_info_section",
+  "pending_status_date",
+  "column_break_y6ulf",
+  "waiting_maintenance_ack_date",
+  "column_break_3vs5m",
+  "under_maintenance_date"
  ],
  "fields": [
   {
@@ -257,6 +263,38 @@
    "fieldtype": "Select",
    "label": "Material Status",
    "options": "Not Applicable\nPending\nOrdered\nPurchased"
+  },
+  {
+   "collapsible": 1,
+   "fieldname": "work_flow_info_section",
+   "fieldtype": "Section Break",
+   "label": "Work Flow Info"
+  },
+  {
+   "fieldname": "pending_status_date",
+   "fieldtype": "Date",
+   "label": "Pending Status Date",
+   "read_only": 1
+  },
+  {
+   "fieldname": "column_break_y6ulf",
+   "fieldtype": "Column Break"
+  },
+  {
+   "fieldname": "waiting_maintenance_ack_date",
+   "fieldtype": "Date",
+   "label": "Waiting Maintenance Ack Date",
+   "read_only": 1
+  },
+  {
+   "fieldname": "column_break_3vs5m",
+   "fieldtype": "Column Break"
+  },
+  {
+   "fieldname": "under_maintenance_date",
+   "fieldtype": "Date",
+   "label": "Under Maintenance Date",
+   "read_only": 1
   }
  ],
  "index_web_pages_for_search": 1,
@@ -275,7 +313,7 @@
    "link_fieldname": "custom_soknana_maintenance"
   }
  ],
- "modified": "2023-11-07 12:31:08.171850",
+ "modified": "2023-11-21 08:12:28.311719",
  "modified_by": "Administrator",
  "module": "Soknana Maintenance",
  "name": "Soknana Maintenance",
