@@ -26,7 +26,7 @@ class SoknanaMaintenance(Document):
 			frappe.db.set_value('Soknana Maintenance', self.name, 'maintenance_complete_date', today())
 	def on_update(self):
 		old_doc = self.get_doc_before_save()
-		if (old_doc==None) or (old_doc.workflow_state != self.workflow_state) :	
+		if (old_doc==None) or ( old_doc.workflow_state and self.workflow_state and old_doc.workflow_state != self.workflow_state) :	
 			if self.workflow_state=='Pending' and self.docstatus==0:
 				frappe.db.set_value('Soknana Maintenance', self.name, 'pending_status_date', today())
 			if self.workflow_state=='waiting maintenance acknowledgment' and self.docstatus==0:
