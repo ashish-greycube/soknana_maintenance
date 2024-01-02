@@ -1,0 +1,80 @@
+{
+ "actions": [],
+ "allow_rename": 1,
+ "autoname": "prompt",
+ "creation": "2023-12-29 14:22:03.940511",
+ "default_view": "List",
+ "doctype": "DocType",
+ "editable_grid": 1,
+ "engine": "InnoDB",
+ "field_order": [
+  "column_break_kgpui",
+  "no_of_times_per_day",
+  "grace_period_for_entry",
+  "section_break_ixthg",
+  "checkup_slots",
+  "checkup_templates"
+ ],
+ "fields": [
+  {
+   "fieldname": "no_of_times_per_day",
+   "fieldtype": "Int",
+   "in_list_view": 1,
+   "label": "No Of Times Per Day",
+   "reqd": 1
+  },
+  {
+   "fieldname": "column_break_kgpui",
+   "fieldtype": "Column Break"
+  },
+  {
+   "description": "This is time in mins entry is allowed before or after time slot<br>\nEx say slot is of 4PM and grace period is 60 mins. It means user can enter between 3PM-5PM",
+   "fieldname": "grace_period_for_entry",
+   "fieldtype": "Int",
+   "label": "Grace Period For Entry (in mins)"
+  },
+  {
+   "fieldname": "section_break_ixthg",
+   "fieldtype": "Section Break"
+  },
+  {
+   "fieldname": "checkup_slots",
+   "fieldtype": "Table",
+   "label": "Checkup Slot",
+   "options": "Soknana Checkup Slots",
+   "read_only": 1
+  },
+  {
+   "fieldname": "checkup_templates",
+   "fieldtype": "Table",
+   "label": "Checkup Template",
+   "options": "Soknana Daily Checkup Checklist"
+  }
+ ],
+ "index_web_pages_for_search": 1,
+ "links": [],
+ "modified": "2024-01-02 09:14:41.608599",
+ "modified_by": "Administrator",
+ "module": "Soknana Maintenance",
+ "name": "Soknana Daily Checkup Template",
+ "name_case": "Title Case",
+ "naming_rule": "Set by user",
+ "owner": "Administrator",
+ "permissions": [
+  {
+   "create": 1,
+   "delete": 1,
+   "email": 1,
+   "export": 1,
+   "print": 1,
+   "read": 1,
+   "report": 1,
+   "role": "System Manager",
+   "share": 1,
+   "write": 1
+  }
+ ],
+ "sort_field": "modified",
+ "sort_order": "DESC",
+ "states": []
+}

@@ -1,0 +1,43 @@
+{
+ "actions": [],
+ "allow_rename": 1,
+ "creation": "2024-01-02 12:48:16.633813",
+ "default_view": "List",
+ "doctype": "DocType",
+ "editable_grid": 1,
+ "engine": "InnoDB",
+ "field_order": [
+  "element",
+  "input"
+ ],
+ "fields": [
+  {
+   "columns": 5,
+   "fieldname": "element",
+   "fieldtype": "Data",
+   "in_list_view": 1,
+   "label": "Element",
+   "reqd": 1
+  },
+  {
+   "columns": 5,
+   "default": "0",
+   "fieldname": "input",
+   "fieldtype": "Check",
+   "in_list_view": 1,
+   "label": "Input"
+  }
+ ],
+ "index_web_pages_for_search": 1,
+ "istable": 1,
+ "links": [],
+ "modified": "2024-01-02 12:53:53.456084",
+ "modified_by": "Administrator",
+ "module": "Soknana Maintenance",
+ "name": "Soknana Daily Checkup Checklist Entry",
+ "owner": "Administrator",
+ "permissions": [],
+ "sort_field": "modified",
+ "sort_order": "DESC",
+ "states": []
+}
