@@ -136,7 +136,10 @@ doc_events = {
     "Purchase Invoice": {
          "on_submit":"soknana_maintenance.api.update_material_status",
          "on_cancel":"soknana_maintenance.api.update_material_status"
-	}    
+	},
+    "Purchase Receipt" : {
+        "validate": "soknana_maintenance.api.check_picture_required_for_purchase_receipt"
+    }   
 }
 
 # Scheduled Tasks

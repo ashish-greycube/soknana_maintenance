@@ -203,3 +203,12 @@ def calculate_success_rate(self,method):
     self.custom_success_rate=(passed_target_total/all_target_total)*100
 
 
+def check_picture_required_for_purchase_receipt(self,method):
+    for row_item in self.items:
+        custom_required_picture_in_receipt_cf = frappe.db.get_value('Item', row_item.item_code, 'custom_required_picture_in_receipt_cf')
+        if custom_required_picture_in_receipt_cf==1 and self.custom_product_picture_cf==None:
+            frappe.throw(
+                title='Attachment Missing',
+                msg='Row: {0} : Item {1} requires picture attachment. Please provide to proceed...'.format(row_item.idx,row_item.item_name))            
+
+
