@@ -41,8 +41,7 @@
    "fieldname": "checkup_slots",
    "fieldtype": "Table",
    "label": "Checkup Slot",
-   "options": "Soknana Checkup Slots",
-   "read_only": 1
+   "options": "Soknana Checkup Slots"
   },
   {
    "fieldname": "checkup_templates",
@@ -53,7 +52,7 @@
  ],
  "index_web_pages_for_search": 1,
  "links": [],
- "modified": "2024-01-02 09:14:41.608599",
+ "modified": "2024-01-16 15:53:10.728112",
  "modified_by": "Administrator",
  "module": "Soknana Maintenance",
  "name": "Soknana Daily Checkup Template",
